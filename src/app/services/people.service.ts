@@ -13,6 +13,10 @@ export class PeopleService {
   constructor(private http: HttpClient) {}
 
   getAllPeople(): Observable<Person[]> {
-    return this.http.get<Person[]>(this.baseApiUri + 'api/people');
+    return this.http.get<Person[]>(this.baseApiUri + '/api/people');
+  }
+
+  addPerson(person: Person) : Observable<Person>{
+    return this.http.post<Person>(this.baseApiUri + '/api/people', person);
   }
 }

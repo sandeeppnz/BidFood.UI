@@ -12,7 +12,8 @@ export class PeopleListComponent implements OnInit {
 
   constructor(private peopleService: PeopleService) {}
   ngOnInit(): void {
-    this.peopleService.getAllPeople().subscribe({
+    this.peopleService.getAllPeople()
+    .subscribe({
       next: (people) => {
         this.people = people;
       },

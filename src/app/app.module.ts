@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { PeopleListComponent } from './components/people/people-list/people-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddPersonComponent } from './components/people/add-person/add-person.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

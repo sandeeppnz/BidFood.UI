@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Person } from 'src/app/models/person.model'
+import { PeopleService } from 'src/app/services/people.service';
 
 @Component({
   selector: 'app-people-list',
@@ -7,13 +8,17 @@ import { Person } from 'src/app/models/person.model'
   styleUrls: ['./people-list.component.css'],
 })
 export class PeopleListComponent implements OnInit {
-  people: Person[] = [
-    { id : 1, firstName : "Sandeep", lastName : "Perera"},
-    { id :2, firstName : "First", lastName :"Last"}
-  ];
+  people: Person[] = [];
 
-  constructor() {}
+  constructor(private peopleService: PeopleService) {}
   ngOnInit(): void {
+    this.peopleService.getAllPeople().subscribe({
+      next: (people) => {
+        this.people = people;
+      },
+      error: (response) => {
+      }
+    })
     this.people.push()
   }
 }
